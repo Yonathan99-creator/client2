@@ -53,18 +53,6 @@ const Testimonials: React.FC = () => {
       service: 'Therapy Session',
       date: 'September 2024',
       verified: true
-    },
-    {
-      id: 5,
-      name: 'Emily Johnson',
-      role: 'College Student',
-      company: 'University of California',
-      image: 'https://images.pexels.com/photos/5452268/pexels-photo-5452268.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop&crop=face',
-      rating: 5,
-      text: 'Finding a math tutor through ProBooking was the best decision I made this semester. The platform made it easy to find someone within my budget, and my grades have improved dramatically. Thank you ProBooking!',
-      service: 'Math Tutoring',
-      date: 'August 2024',
-      verified: true
     }
   ];
 
@@ -92,9 +80,8 @@ const Testimonials: React.FC = () => {
   const current = testimonials[currentTestimonial];
 
   return (
-    <section id="testimonials" className="py-20 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-purple-900/10 dark:to-gray-800 transition-all duration-500 overflow-hidden">
+    <section id="reviews" className="py-20 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-purple-900/10 dark:to-gray-800 transition-all duration-500 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section header */}
         <div className="text-center mb-16 animate-fade-in-up">
           <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-yellow-100 to-orange-100 dark:from-yellow-900/20 dark:to-orange-900/20 rounded-full mb-6">
             <Award className="h-5 w-5 text-yellow-600 dark:text-yellow-400 mr-2" />
@@ -105,27 +92,22 @@ const Testimonials: React.FC = () => {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600"> Clients Say</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Join thousands of satisfied clients who have found their perfect professional match
+            Join thousands of satisfied clients who have found their perfect professional match through ProBooking
           </p>
         </div>
 
-        {/* Main testimonial */}
         <div className="relative max-w-4xl mx-auto mb-12">
           <div className="bg-white dark:bg-gray-800 rounded-3xl p-8 md:p-12 shadow-2xl border border-gray-200 dark:border-gray-700 relative overflow-hidden animate-fade-in-up">
-            {/* Background pattern */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900/20 dark:to-purple-900/20 rounded-full -translate-y-16 translate-x-16 opacity-50"></div>
             <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-pink-100 to-yellow-100 dark:from-pink-900/20 dark:to-yellow-900/20 rounded-full translate-y-12 -translate-x-12 opacity-50"></div>
             
             <div className="relative z-10">
-              {/* Quote icon */}
               <Quote className="h-12 w-12 text-blue-600 dark:text-blue-400 mb-6 opacity-50" />
               
-              {/* Testimonial text */}
               <blockquote className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8 font-medium">
                 "{current.text}"
               </blockquote>
               
-              {/* Client info */}
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-4">
                   <div className="relative">
@@ -153,7 +135,6 @@ const Testimonials: React.FC = () => {
                   </div>
                 </div>
                 
-                {/* Rating */}
                 <div className="text-right">
                   <div className="flex items-center space-x-1 mb-2">
                     {[...Array(current.rating)].map((_, i) => (
@@ -168,7 +149,6 @@ const Testimonials: React.FC = () => {
             </div>
           </div>
 
-          {/* Navigation arrows */}
           <button
             onClick={prevTestimonial}
             className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-gray-200 dark:border-gray-700 group"
@@ -184,7 +164,6 @@ const Testimonials: React.FC = () => {
           </button>
         </div>
 
-        {/* Testimonial indicators */}
         <div className="flex justify-center space-x-3 mb-12">
           {testimonials.map((_, index) => (
             <button
@@ -199,7 +178,6 @@ const Testimonials: React.FC = () => {
           ))}
         </div>
 
-        {/* Auto-play control */}
         <div className="flex justify-center mb-12">
           <button
             onClick={() => setIsAutoPlaying(!isAutoPlaying)}
@@ -216,7 +194,6 @@ const Testimonials: React.FC = () => {
           </button>
         </div>
 
-        {/* Stats */}
         <div className="grid md:grid-cols-3 gap-8 animate-fade-in-up">
           <div className="text-center bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 hover:scale-105">
             <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">98%</div>

@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
-  UserGroupIcon, 
-  CalendarDaysIcon, 
-  StarIcon, 
-  ClockIcon,
-  CheckCircleIcon,
-  TrophyIcon
-} from '@heroicons/react/24/outline';
+  Users, 
+  Calendar, 
+  Star, 
+  Clock,
+  CheckCircle,
+  Trophy
+} from 'lucide-react';
 
-const StatsSection: React.FC = () => {
+const Stats: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [animatedStats, setAnimatedStats] = useState({
     professionals: 0,
@@ -32,7 +32,7 @@ const StatsSection: React.FC = () => {
 
   const stats = [
     {
-      icon: UserGroupIcon,
+      icon: Users,
       value: animatedStats.professionals.toLocaleString() + '+',
       label: 'Verified Professionals',
       description: 'Across all specialties',
@@ -40,7 +40,7 @@ const StatsSection: React.FC = () => {
       bgColor: 'bg-blue-50 dark:bg-blue-900/20'
     },
     {
-      icon: CalendarDaysIcon,
+      icon: Calendar,
       value: animatedStats.appointments.toLocaleString() + '+',
       label: 'Successful Appointments',
       description: 'Booked this year',
@@ -48,7 +48,7 @@ const StatsSection: React.FC = () => {
       bgColor: 'bg-green-50 dark:bg-green-900/20'
     },
     {
-      icon: StarIcon,
+      icon: Star,
       value: animatedStats.rating.toFixed(1),
       label: 'Average Rating',
       description: 'From client reviews',
@@ -56,7 +56,7 @@ const StatsSection: React.FC = () => {
       bgColor: 'bg-yellow-50 dark:bg-yellow-900/20'
     },
     {
-      icon: ClockIcon,
+      icon: Clock,
       value: `${animatedStats.responseTime}min`,
       label: 'Average Response Time',
       description: 'Professional replies',
@@ -64,7 +64,7 @@ const StatsSection: React.FC = () => {
       bgColor: 'bg-purple-50 dark:bg-purple-900/20'
     },
     {
-      icon: CheckCircleIcon,
+      icon: CheckCircle,
       value: `${animatedStats.satisfaction}%`,
       label: 'Client Satisfaction',
       description: 'Would recommend us',
@@ -72,7 +72,7 @@ const StatsSection: React.FC = () => {
       bgColor: 'bg-indigo-50 dark:bg-indigo-900/20'
     },
     {
-      icon: TrophyIcon,
+      icon: Trophy,
       value: `${animatedStats.awards}+`,
       label: 'Industry Awards',
       description: 'Recognition received',
@@ -101,7 +101,7 @@ const StatsSection: React.FC = () => {
   useEffect(() => {
     if (!isVisible) return;
 
-    const duration = 2000; // 2 seconds
+    const duration = 2000;
     const steps = 60;
     const stepDuration = duration / steps;
 
@@ -148,86 +148,34 @@ const StatsSection: React.FC = () => {
           {stats.map((stat, index) => (
             <div
               key={index}
-              className={`group relative ${stat.bgColor} rounded-2xl p-8 border border-gray-200 dark:border-gray-700 hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 animate-in slide-in-from-bottom overflow-hidden`}
+              className={`group relative ${stat.bgColor} rounded-2xl p-8 border border-gray-200 dark:border-gray-700 hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 animate-fade-in-up overflow-hidden`}
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              {/* Background Gradient */}
               <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}></div>
               
-              {/* Icon */}
               <div className={`inline-flex p-4 rounded-xl bg-gradient-to-br ${stat.color} mb-6 transform group-hover:scale-110 transition-transform duration-300`}>
                 <stat.icon className="w-8 h-8 text-white" />
               </div>
 
-              {/* Value */}
               <div className="text-4xl font-bold text-gray-900 dark:text-white mb-2 group-hover:scale-105 transition-transform duration-300">
                 {stat.value}
               </div>
 
-              {/* Label */}
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                 {stat.label}
               </h3>
 
-              {/* Description */}
               <p className="text-gray-600 dark:text-gray-300">
                 {stat.description}
               </p>
 
-              {/* Hover Effect */}
               <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-current to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
             </div>
           ))}
-        </div>
-
-        {/* Additional Info */}
-        <div className="mt-16 text-center">
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border border-gray-200 dark:border-gray-700 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-              Why Choose ProBooking?
-            </h3>
-            <div className="grid md:grid-cols-3 gap-6 text-left">
-              <div className="flex items-start space-x-3">
-                <CheckCircleIcon className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white mb-1">
-                    Verified Professionals
-                  </h4>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm">
-                    All professionals are thoroughly vetted and verified
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex items-start space-x-3">
-                <CheckCircleIcon className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white mb-1">
-                    Instant Booking
-                  </h4>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm">
-                    Book appointments instantly with real-time availability
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex items-start space-x-3">
-                <CheckCircleIcon className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white mb-1">
-                    Secure Payments
-                  </h4>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm">
-                    Safe and secure payment processing with full protection
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
   );
 };
 
-export default StatsSection;
+export default Stats;
